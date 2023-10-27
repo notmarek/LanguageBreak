@@ -11,6 +11,7 @@ echo "moving patched uks to the new hotfix"
 cp patchedUks.sqsh newHotfix
 echo "patching bridge in the new hotfix"
 $(patch originalHotfix/bridge < utils/bridge.patch) &> /dev/null
+$(patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch) &> /dev/null
 mv originalHotfix/* newHotfix
 mkdir build
 rm -rf originalHotfix
