@@ -13,7 +13,7 @@
  otautils_update_progressbar
  
 +logmsg "I" "install" "" "Storing combined developer keystore"
-+cp -f devuks.sqsh "${MKK_PERSISTENT_STORAGE}/devuks.sqsh"
++cp -f patchedUks.sqsh "${MKK_PERSISTENT_STORAGE}/patchedUks.sqsh"
 +
 +otautils_update_progressbar
 +

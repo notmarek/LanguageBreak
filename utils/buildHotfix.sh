@@ -6,4 +6,5 @@ fi
 echo $DEVICES
 cp utils/install-languagebreak-cleanup.sh newHotfix
 cd newHotfix
+export KT_WITH_UNKNOWN_DEVCODES=1
 ../utils/kindletool create ota2 $DEVICES -b FC04 -O . ../build/update_hotfix_languagebreak.bin

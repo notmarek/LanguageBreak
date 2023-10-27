@@ -16,7 +16,7 @@
 +		LOOP=$(mount | grep ' on /etc/uks ' | awk '{print $1}')
 +		umount $LOOP
 +		losetup -d $LOOP
-+		cp "${MKK_PERSISTENT_STORAGE}/devuks.sqsh" ${UKSSQSH}
++		cp "${MKK_PERSISTENT_STORAGE}/patchedUks.sqsh" ${UKSSQSH}
 +		mount -o loop=$LOOP,norelatime,nodiratime,noatime -t squashfs ${UKSSQSH} ${ROOT}/etc/uks
 +		RET=$?
 +	
