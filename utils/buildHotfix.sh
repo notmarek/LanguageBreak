@@ -6,4 +6,4 @@ fi
 echo $DEVICES
 cp utils/install-languagebreak-cleanup.sh newHotfix
 cd newHotfix
-../utils/kindletool create ota2 $DEVICES -b FC04 . ../build/update_hotfix_languagebreak.bin
+../utils/kindletool create ota2 $DEVICES -b FC04 -O . ../build/update_hotfix_languagebreak.bin
