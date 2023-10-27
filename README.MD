@@ -5,6 +5,7 @@ Thank you to Bluebotlabs for all the help along the way and GeorgeYellow for bri
 **Make sure to read the entirety of the instructions *before* proceeding.**
 
 **Jailbreak**
+
 1. Type ;enter_demo in the Kindle search bar
 2. Reboot the device
 3. Once in demo mode, skip setting up wifi and enter random values for store registration
@@ -26,6 +27,7 @@ Thank you to Bluebotlabs for all the help along the way and GeorgeYellow for bri
 19. Your kindle should reboot and you should see some log message on the screen
 
 **Post Jailbreak**
+
 1. After the device has rebooted, type ;uzb into the search bar
 2. Connect the device to a PC and copy update_hotfix_languagebreak.bin to the root of the Kindle storage
 3. Eject the device and either enter ;dsts or swipe down and select the settings icon to enter the device settings menu
@@ -33,20 +35,41 @@ Thank you to Bluebotlabs for all the help along the way and GeorgeYellow for bri
 5. This will take your device out of demo mode and clean up unneeded jailbreak files.
 
 **Troubleshooting**
-Can't seem to get it to work? 
+Can't seem to get it to work?
 
 Download the update file of the kindle version you are currently on from amazon install it and try again.
 
+
 for example you can use this link by replacing the Xs with your version to get a file for you kindle
+
+
 PW5: https://s3.amazonaws.com/firmwaredownloads/update_kindle_11th_5.XX.X.bin
+
+
 PW4: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.XX.X.bin
+
+
 PW3: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_5.XX.X.bin
+
+
 Kindle 11th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_11th_5.XX.X.bin
+
+
 Kindle 10th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_10th_5.XX.X.bin
+
+
 Kindle 8th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_8th_5.XX.X.bin
+
+
 Scribe: https://s3.amazonaws.com/firmwaredownloads/firmwaredownloads/update_kindle_scribe_5.XX.X.bin
+
+
 Oasis 10th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_oasis_v2_5.XX.X.bin
+
+
 Oasis 9th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_oasis_5.XX.X.bin
+
+
 Oasis 8th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_oasis_5.XX.X.bin
 
 
