@@ -15,7 +15,7 @@ mv originalHotfix/* newHotfix
 mkdir build
 rm -rf originalHotfix
 echo "building the new hotfix for the devices specified in the official firmware"
-./utils/buildHotfix.sh &> /dev/null
+./utils/buildHotfix.sh $1 &> /dev/null
 rm -rf newHotfix
 echo "moving patched uks to LanguageBreak directory"
 cp LanguageBreak build/ -r
