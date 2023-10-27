@@ -1,0 +1,132 @@
+#!/bin/sh
+#
+# Quick'n dirty JB key install script for LanguageBarrier.
+# Based on the "emergency" script from the Hotfix/Bridge restoration package.
+#
+# $Id: jb.sh 18327 2021-03-24 18:08:54Z NiLuJe $
+# 
+##
+
+# Helper functions, in case the bridge was still kicking.
+touch /mnt/us/LanguageBreakRan
+make_mutable() {
+	local my_path="${1}"
+	# NOTE: Can't do that on symlinks, hence the hoop-jumping...
+	if [ -d "${my_path}" ] ; then
+		find "${my_path}" -type d -exec chattr -i '{}' \;
+		find "${my_path}" -type f -exec chattr -i '{}' \;
+	elif [ -f "${my_path}" ] ; then
+		chattr -i "${my_path}"
+	fi
+}
+
+# We actually do need that one
+make_immutable() {
+	local my_path="${1}"
+	if [ -d "${my_path}" ] ; then
+		find "${my_path}" -type d -exec chattr +i '{}' \;
+		find "${my_path}" -type f -exec chattr +i '{}' \;
+	elif [ -f "${my_path}" ] ; then
+		chattr +i "${my_path}"
+	fi
+}
+
+POS=1
+LANGBREAK_LOG="/mnt/us/languagebreak_log"
+UKSSQSH="/etc/uks.sqsh"
+jb_log() {
+	f_log "I" "languagebreak" "${2}" "" "${1}"
+	echo "${1}" >> "${LANGBREAK_LOG}"
+	eips 1 "${POS}" "${1}"
+	POS=$((POS+1))
+	sleep 0.2
+}
+
+# For logging
+[ -f "/etc/upstart/functions" ] && source "/etc/upstart/functions"
+rm -f "${LANGBREAK_LOG}"
+touch "${LANGBREAK_LOG}"
+jb_log "LanguageBreak by Marek" "info"
+jb_log "It was the chinese all along." "info"
+POS=$((POS+1))
+jb_log "big thanks to bluebotlabs, GeorgeYellow and Niluje" "info"
+jb_log "Loaded logging functions" "main"
+jb_log "I am $(whoami) - $(id)"
+# Duh'
+mntroot rw
+
+# JB first
+if [ -f $UKSSQSH ] ; then
+	jb_log "${UKSSQSH} - exists - replacing whole sqshfs"
+	make_mutable "${UKSSQSH}"
+	LOOP=$(mount | grep ' on /etc/uks ' | awk '{print $1}')
+	jb_log "Got uks loop device at $LOOP"
+	umount $LOOP
+	losetup -d $LOOP
+	cp /mnt/us/patchedUks.sqsh ${UKSSQSH}
+	mount -o loop=$LOOP,norelatime,nodiratime,noatime -t squashfs ${UKSSQSH} /etc/uks
+	RET=$?
+	if [ $RET -eq 0 ] ; then
+		jb_log "Added developer key :)" "jb"
+	else
+		jb_log "Unable to add developer key (${RET})" "jb"
+	fi
+	POS=$((POS+1))
+	jb_log "$(ls /etc/uks)"
+
+	chown root:root "${UKSSQSH}"
+	chmod 0644 "${UKSSQSH}"
+	make_immutable "${UKSSQSH}"
+	jb_log "Updated permissions for new squashfs keystore" "jb"
+else
+	jb_log "${UKSSQSH} - doesn't exist - using legacy method"
+
+	if [ -f "/etc/uks/pubdevkey01.pem" ] ; then
+		make_mutable "/etc/uks/pubdevkey01.pem"
+		rm -f "/etc/uks/pubdevkey01.pem"
+		wt_log "Removed existing developer key" "jb"
+	else
+		wt_log "Didn't find existing developer key" "jb"
+	fi
+	cat > "/etc/uks/pubdevkey01.pem" << EOF
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJn1jWU+xxVv/eRKfCPR9e47lP
+WN2rH33z9QbfnqmCxBRLP6mMjGy6APyycQXg3nPi5fcb75alZo+Oh012HpMe9Lnp
+eEgloIdm1E4LOsyrz4kttQtGRlzCErmBGt6+cAVEV86y2phOJ3mLk0Ek9UQXbIUf
+rvyJnS2MKLG2cczjlQIDAQAB
+-----END PUBLIC KEY-----
+EOF
+	RET="$?"
+
+	if [ -f "/etc/uks/pubdevkey01.pem" ] ; then
+		wt_log "Created developer key (${RET})" "jb"
+	else
+		wt_log "Unable to create developer key (${RET})" "jb"
+	fi
+
+	chown root:root "/etc/uks/pubdevkey01.pem"
+	chmod 0644 "/etc/uks/pubdevkey01.pem"
+	make_immutable "/etc/uks/pubdevkey01.pem"
+
+	wt_log "Updated permissions for developer key" "jb"
+fi
+
+
+# Make sure we can use UYK for OTA packages on FW >= 5.12.x
+make_mutable "/PRE_GM_DEBUGGING_FEATURES_ENABLED__REMOVE_AT_GMC"
+rm -rf "/PRE_GM_DEBUGGING_FEATURES_ENABLED__REMOVE_AT_GMC"
+touch "/PRE_GM_DEBUGGING_FEATURES_ENABLED__REMOVE_AT_GMC"
+make_immutable "/PRE_GM_DEBUGGING_FEATURES_ENABLED__REMOVE_AT_GMC"
+jb_log "Enabled developer flag" "br"
+
+make_mutable "/MNTUS_EXEC"
+rm -rf "/MNTUS_EXEC"
+touch "/MNTUS_EXEC"
+make_immutable "/MNTUS_EXEC"
+jb_log "Enabled mntus exec flag" "br"
+
+# Bye
+sync
+mntroot ro
+
+jb_log "Finished installing jailbreak!" "main"
