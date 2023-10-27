@@ -43,7 +43,7 @@ Download the update file of the kindle version you are currently on from amazon 
 for example you can use this link by replacing the Xs with your version to get a file for you kindle
 
 
-PW5: https://s3.amazonaws.com/firmwaredownloads/update_kindle_11th_5.XX.X.bin
+PW5: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_11th_5.XX.X.bin
 
 
 PW4: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.XX.X.bin
