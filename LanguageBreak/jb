@@ -129,4 +129,7 @@ jb_log "Enabled mntus exec flag" "br"
 sync
 mntroot ro
 
+# Finally, change language back to english
+lipc-send-event com.lab126.blanket.langpicker changeLocale -s "en-US"
+
 jb_log "Finished installing jailbreak!" "main"
