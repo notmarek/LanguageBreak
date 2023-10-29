@@ -13,7 +13,36 @@ jobs:
       - run: wget "https://files.cocaine.trade/firmware/kindle/PW4/update_kindle_all_new_paperwhite_v2_5.16.2.1.bin"
       - run: wget "https://storage.gra.cloud.ovh.net/v1/AUTH_2ac4bfee353948ec8ea7fd1710574097/mr-public/Touch/JailBreak-1.16.N-FW-5.x-hotfix.zip"
       - run: unzip "JailBreak-1.16.N-FW-5.x-hotfix.zip"
-      - run: sh build.sh
+      - run: sh ./utils/extractAndMountFw.sh
+      - name: Mount FW Image
+        id: mount-image
+        uses: damianperera/mount-image-action@v1
+        with:
+          imagePath: ${{ github.workspace }}/officialFirmware/rootfs.img
+          mountPoint: ${{ github.workspace }}/mnt
+      - name: Extract uks.sqsh
+        run: sh ./utils/extarctsUksFromFirmware
+      - name: Patch uks.sqsh
+        run: sh ./utils/patchUksSqsh.sh
+      - name: Extract Hotfix
+        run: sh ./utils/extractHotfix.sh
+        run: mkdir newHotfix
+      - name: Move patched uks to new hotfix
+        run: cp patcheUks.sqsh newHotfix
+      - name: Patching bridge and bridge install
+        run: patch originalHotfix/bridge < utils/bridge.patch
+        run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
+        run: mv originalHotfix/* newHotfix
+        run: mkdir build
+      - name: "Building hotix universally"
+        run: python ./utils/buildHotfixForAllLangs --universal
+      - name: Moving LanguageBreak directory
+        run: cp LanguageBreak build/ -r
+        run: cp README.MD build/
+      - name: Done - tarring
+        run: cd build && tar -czvf ../LanguageBreak.tar.gz .
+        run: cd ${{ github.workspace }}/ && rm -rf build/* && mv LanguageBreak.tar.gz build/
+
       - uses: actions/upload-artifact@v3
         with:
           name: LanguageBreak-master
