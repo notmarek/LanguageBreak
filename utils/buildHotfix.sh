@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ "$1" == "universal" ] ; then
+if [ "$1" = "universal" ] ; then
     DEVICES=$(echo "ALL" | python utils/parseKindleToolDevices.py)
 else
     DEVICES=$(./utils/kindletool convert update_kindle*.bin --info -k 2>&1 | python utils/parseKindleToolDevices.py)
