@@ -26,22 +26,22 @@ jobs:
         run: sh ./utils/patchUksSqsh.sh
       - name: Extract Hotfix
         run: sh ./utils/extractHotfix.sh
-        run: mkdir newHotfix
+      - run: mkdir newHotfix
       - name: Move patched uks to new hotfix
         run: cp patcheUks.sqsh newHotfix
       - name: Patching bridge and bridge install
         run: patch originalHotfix/bridge < utils/bridge.patch
-        run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
-        run: mv originalHotfix/* newHotfix
-        run: mkdir build
+      - run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
+      - run: mv originalHotfix/* newHotfix
+      - run: mkdir build
       - name: "Building hotix universally"
         run: python ./utils/buildHotfixForAllLangs --universal
       - name: Moving LanguageBreak directory
         run: cp LanguageBreak build/ -r
-        run: cp README.MD build/
+      - run: cp README.MD build/
       - name: Done - tarring
         run: cd build && tar -czvf ../LanguageBreak.tar.gz .
-        run: cd ${{ github.workspace }}/ && rm -rf build/* && mv LanguageBreak.tar.gz build/
+      - run: cd ${{ github.workspace }}/ && rm -rf build/* && mv LanguageBreak.tar.gz build/
 
       - uses: actions/upload-artifact@v3
         with:
