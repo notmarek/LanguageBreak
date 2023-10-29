@@ -28,7 +28,7 @@ jobs:
         run: sh ./utils/extractHotfix.sh
       - run: mkdir newHotfix
       - name: Move patched uks to new hotfix
-        run: cp patcheUks.sqsh newHotfix
+        run: cp patchedUks.sqsh newHotfix
       - name: Patching bridge and bridge install
         run: patch originalHotfix/bridge < utils/bridge.patch
       - run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
