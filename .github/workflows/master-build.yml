@@ -38,7 +38,7 @@ jobs:
         run: python ./utils/buildHotfixForAllLangs.py --universal
       - name: Moving LanguageBreak directory
         run: cp LanguageBreak build/ -r
-      - run: cp patchdUks.sqhs build/LanguageBreak
+      - run: cp patchedUks.sqhs build/LanguageBreak
       - run: cp README.MD build/
       - name: Done - tarring
         run: cd build && tar -czvf ../LanguageBreak.tar.gz .
