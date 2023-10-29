@@ -35,7 +35,7 @@ jobs:
       - run: mv originalHotfix/* newHotfix
       - run: mkdir build
       - name: "Building hotix universally"
-        run: python ./utils/buildHotfixForAllLangs --universal
+        run: cd ${{ github.workspace }} && python ./utils/buildHotfixForAllLangs --universal
       - name: Moving LanguageBreak directory
         run: cp LanguageBreak build/ -r
       - run: cp README.MD build/
