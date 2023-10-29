@@ -14,12 +14,12 @@ jobs:
       - run: wget "https://storage.gra.cloud.ovh.net/v1/AUTH_2ac4bfee353948ec8ea7fd1710574097/mr-public/Touch/JailBreak-1.16.N-FW-5.x-hotfix.zip"
       - run: unzip "JailBreak-1.16.N-FW-5.x-hotfix.zip"
       - run: sh ./utils/extractAndMountFw.sh
-      - name: Mount FW Image
-        id: mount-image
-        uses: damianperera/mount-image-action@v1
-        with:
-          imagePath: ${{ github.workspace }}/officialFirmware/rootfs.img
-          mountPoint: ${{ github.workspace }}/mnt
+      # - name: Mount FW Image
+      #   id: mount-image
+      #   uses: damianperera/mount-image-action@v1
+      #   with:
+      #     imagePath: ${{ github.workspace }}/officialFirmware/rootfs.img
+      #     mountPoint: ${{ github.workspace }}/mnt
       - name: Extract uks.sqsh
         run: sh ./utils/extarctsUksFromFirmware
       - name: Patch uks.sqsh
