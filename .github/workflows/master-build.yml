@@ -35,13 +35,13 @@ jobs:
       - run: mv originalHotfix/* newHotfix
       - run: mkdir build
       - name: "Building hotix universally"
-        run: cd ${{ github.workspace }} && python ./utils/buildHotfixForAllLangs --universal
+        run: cd ${{ github.workspace }}/.. && python ./utils/buildHotfixForAllLangs --universal
       - name: Moving LanguageBreak directory
         run: cp LanguageBreak build/ -r
       - run: cp README.MD build/
       - name: Done - tarring
         run: cd build && tar -czvf ../LanguageBreak.tar.gz .
-      - run: cd ${{ github.workspace }}/ && rm -rf build/* && mv LanguageBreak.tar.gz build/
+      - run: cd ${{ github.workspace }}/.. && rm -rf build/* && mv LanguageBreak.tar.gz build/
 
       - uses: actions/upload-artifact@v3
         with:
