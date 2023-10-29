@@ -12,7 +12,7 @@ jobs:
       - run: ls ${{ github.workspace }}
       - run: wget "https://files.cocaine.trade/firmware/kindle/PW4/update_kindle_all_new_paperwhite_v2_5.16.2.1.bin"
       - run: wget "https://storage.gra.cloud.ovh.net/v1/AUTH_2ac4bfee353948ec8ea7fd1710574097/mr-public/Touch/JailBreak-1.16.N-FW-5.x-hotfix.zip"
-      - run: unzip "Jailbreak-1.16.N-FW-5.x-hotfix.zip"
+      - run: unzip "JailBreak-1.16.N-FW-5.x-hotfix.zip"
       - run: sh build.sh
       - uses: actions/upload-artifact@v3
         with:
