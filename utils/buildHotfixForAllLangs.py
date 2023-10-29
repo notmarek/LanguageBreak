@@ -1,3 +1,4 @@
+#!/bin/python
 from glob import glob
 import re
 import subprocess
