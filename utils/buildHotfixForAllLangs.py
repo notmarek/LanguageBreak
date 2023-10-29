@@ -21,4 +21,4 @@ for x in langs:
             linesPatched.append(line.format(lang_code=x))
         f.writelines(linesPatched)
     os.chmod("newHotfix/install-languagebreak-cleanup.sh", 0o755)
-    subprocess.Popen(("utils/buildHotfix.sh " + "universal" if "--universal" in sys.argv else "", x)).wait()
+    subprocess.Popen(("utils/buildHotfix.sh", "universal" if "--universal" in sys.argv else "", x)).wait()
