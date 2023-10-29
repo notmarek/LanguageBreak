@@ -1,9 +1,10 @@
 mkdir mnt
 mkdir patchedUks
-sudo mount -o loop uks.sqsh mnt
-cp mnt/* patchedUks
-sudo umount mnt
-rm -rf mnt
+mkdir mntsqsh
+sudo mount -o loop uks.sqsh mntsqsh
+cp mntsqsh/* patchedUks
+sudo umount mntsqsh
+rm -rf mntsqsh
 cat > "patchedUks/pubdevkey01.pem" << EOF
 -----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJn1jWU+xxVv/eRKfCPR9e47lP
