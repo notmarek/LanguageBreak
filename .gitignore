@@ -2,3 +2,5 @@ build
 *.bin
 originalHotfix
 *.sqsh
+mnt
+officialFirmware

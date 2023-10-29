@@ -1,4 +1,6 @@
 rm -rf build
+echo "extracting and mounting fw"
+./utils/extractAndMountFw.sh &> /dev/null
 echo "extracting uks.sqsh from official firmware"
 ./utils/extractUksFromFirmware.sh &> /dev/null
 echo "patching uks.sqsh with the sexy pubdevkey01.pem"
@@ -16,7 +18,8 @@ mv originalHotfix/* newHotfix
 mkdir build
 rm -rf originalHotfix
 echo "building the new hotfix for the devices specified in the official firmware"
-./utils/buildHotfix.sh $1 &> /dev/null
+python ./utils/buildHotfixForAllLangs.py $1 &> /dev/null
+./utils/unmountAndDeleteFw.sh
 rm -rf newHotfix
 echo "moving patched uks to LanguageBreak directory"
 cp LanguageBreak build/ -r
@@ -24,7 +27,7 @@ cp README.MD build/
 cp patchedUks.sqsh build/LanguageBreak
 rm -rf patchedUks.sqsh
 echo "done language break generated for:"
-cat build/DEVICES.txt
+cat build/DEVICES.txt 
 cd build
 tar -czf ../LanguageBreak.tar.gz .
 cd ..
