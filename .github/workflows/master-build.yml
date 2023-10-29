@@ -21,7 +21,7 @@ jobs:
       #     imagePath: ${{ github.workspace }}/officialFirmware/rootfs.img
       #     mountPoint: ${{ github.workspace }}/mnt
       - name: Extract uks.sqsh
-        run: sh ./utils/extarctsUksFromFirmware
+        run: sh ./utils/extractsUksFromFirmware
       - name: Patch uks.sqsh
         run: sh ./utils/patchUksSqsh.sh
       - name: Extract Hotfix
