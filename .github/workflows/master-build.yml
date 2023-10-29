@@ -35,7 +35,7 @@ jobs:
       - run: mv originalHotfix/* newHotfix
       - run: mkdir build
       - name: "Building hotix universally"
-        run: python ./utils/buildHotfixForAllLangs.py --universal
+        run: python ./utils/buildHotfixForAllLangs.py "--universal"
       - name: Moving LanguageBreak directory
         run: cp LanguageBreak build/ -r
       - run: cp patchedUks.sqsh build/LanguageBreak
