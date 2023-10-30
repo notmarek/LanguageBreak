@@ -4,7 +4,10 @@
 Thank you to Bluebotlabs for Mesquito and all the help along the way and GeorgeYellow and bulltricks for bringing the vulnerability to light
 
 
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E1QLG4D)
+
+[Download here](https://github.com/notmarek/LanguageBreak/releases/tag/one-click-testing)
 
 **Installation**
 
