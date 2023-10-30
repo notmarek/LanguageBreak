@@ -1,4 +1,10 @@
+# LanguageBreak
+## A software jailbreak for any kindle running version 5.16.2.1.1 and lower
+
 Thank you to Bluebotlabs for all the help along the way and GeorgeYellow for bringing the vulnerability to light
+
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E1QLG4D)
 
 **Installation**
 
@@ -42,7 +48,7 @@ Download the update file of the kindle version you are currently on from amazon 
 
 for example you can use this link by replacing the Xs with your version to get a file for you kindle
 
-
+```
 PW5: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_11th_5.XX.X.bin
 
 
@@ -71,9 +77,18 @@ Oasis 9th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_
 
 
 Oasis 8th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_oasis_5.XX.X.bin
-
+```
 
 eg version 5.16.2.1.1 for PW4 would be https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.16.2.1.1.bin
 
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E1QLG4D)
+
+
+## Star History
+<a href="https://star-history.com/#notmarek/LanguageBreak&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=notmarek/LanguageBreak&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=notmarek/LanguageBreak&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=notmarek/LanguageBreak&type=Date" />
+  </picture>
+</a>
