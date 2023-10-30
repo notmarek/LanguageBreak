@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="user-scalable=no" />
+
+  <head>
+    <script>
+      var kindle = window.kindle || top.kindle;
+      var shouldPartialPreload = 0;
+      var isAppPreloading =
+        shouldPartialPreload &&
+        kindle &&
+        kindle.bkgrnd &&
+        kindle.bkgrnd.isAppPreloading();
+      if (!isAppPreloading) {
+        var storeContext = parent && parent.storeContext;
+        if (!storeContext) {
+          storeContext = { startupMetrics: {} };
+        }
+
+        storeContext.isPartialPreload = true;
+        storeContext.isStoreLoaded = true;
+        window.storeContext.isPartialPreload = true;
+        window.storeContext.isStoreLoaded = true;
+      }
+      if (!isAppPreloading) {
+        storeContext.startupMetrics.startupJs = { start: new Date() };
+        if (!kindle || typeof kindle === "undefined") {
+          var kindle = window.kindle || top.kindle;
+        }
+
+        if (kindle.dev.webkitLog) {
+          kindle.dev.webkitLog("on");
+        }
+        storeContext.developer = 1;
+      }
+      kindle.appmgr.onback = function (a) {
+        return true;
+      };
+      kindle.appmgr.onforward = function (a, b) {
+        return true;
+      };
+    </script>
+  </head>
+
+  <body>
+    <h1>LanguageBreak</h1>
+    Loading :)
+    <script>
+      var kindle = window.kindle || top.kindle;
+      kindle.net.setWirelessPrompt("never");
+      const chromeConfig = {
+        appId: "com.lab126.store",
+        topNavBar: {
+          template: "title",
+          title: "LanguageBreak Loader",
+        },
+      };
+      kindle.messaging.sendMessage(
+        "com.lab126.chromebar",
+        "configureChrome",
+        chromeConfig
+      );
+      jb();
+      function jb() {
+        kindle.device.clearApplicationCache();
+        kindle.device.clearCache();
+        kindle.dev.clearApplicationCache();
+        kindle.dev.clearCache();
+        kindle.chrome.setSpinnerState("stop", 0, 0);
+        kindle.net.setWirelessPrompt("never");
+        top.location.href = "file:///mnt/us/jb.html";
+      }
+    </script>
+
+    <div id="dialogWrap"></div>
+  </body>
+</html>

