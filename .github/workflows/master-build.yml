@@ -27,11 +27,11 @@ jobs:
       - name: Extract Hotfix
         run: sh ./utils/extractHotfix.sh
       - run: mkdir newHotfix
-      - name: Move patched uks to new hotfix
-        run: cp patchedUks.sqsh newHotfix
-      - name: Patching bridge and bridge install
-        run: patch originalHotfix/bridge < utils/bridge.patch
-      - run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
+      # - name: Move patched uks to new hotfix
+        # run: cp patchedUks.sqsh newHotfix
+      # - name: Patching bridge and bridge install  # no need to patch anymore yay
+      #   run: patch originalHotfix/bridge < utils/bridge.patch
+      # - run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
       - run: mv originalHotfix/* newHotfix
       - run: mkdir build
       - name: "Building hotix universally"
