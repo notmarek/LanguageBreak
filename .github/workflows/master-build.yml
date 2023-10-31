@@ -34,7 +34,7 @@ jobs:
       # - run: patch originalHotfix/install-bridge.sh < utils/install-bridge.sh.patch
       - run: mv originalHotfix/* newHotfix
       - run: mkdir build
-      - name: "Building hotix universally"
+      - name: "Building universal hotfix"
         run: python ./utils/buildHotfixForAllLangs.py "--universal"
       - name: Moving LanguageBreak directory
         run: cp LanguageBreak build/ -r

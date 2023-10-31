@@ -35,7 +35,7 @@ Thank you to Bluebotlabs for all the help along the way and GeorgeYellow for bri
 **Post Jailbreak**
 
 1. After the device has rebooted, type ;uzb into the search bar
-2. Connect the device to a PC and copy update_hotfix_languagebreak.bin to the root of the Kindle storage
+2. Connect the device to a PC and copy Update_hotfix_languagebreak.bin to the root of the Kindle storage
 3. Eject the device and either enter ;dsts or swipe down and select the settings icon to enter the device settings menu
 4. Select Update Your Kindle to install the custom hotfix
 5. This will take your device out of demo mode and clean up unneeded jailbreak files.
