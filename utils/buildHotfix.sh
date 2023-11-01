@@ -21,4 +21,4 @@ for dev in ${DEVICE_LIST} ; do
 done
 
 cd newHotfix
-${KINDLETOOL} create ota2 ${DEVICES} -b FC04 -O . "../build/Update_hotfix_languagebreak-${2}.bin"
+${KINDLETOOL} create ota2 ${DEVICES} -b FC04 -O -C -X . "../build/Update_hotfix_languagebreak-${2}.bin"

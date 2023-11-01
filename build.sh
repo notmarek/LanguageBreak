@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 rm -rf build
 echo "* extracting and mounting fw"
