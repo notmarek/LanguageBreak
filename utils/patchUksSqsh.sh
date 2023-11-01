@@ -1,3 +1,5 @@
+#!/bin/sh
+
 mkdir mnt
 mkdir patchedUks
 mkdir mntsqsh
