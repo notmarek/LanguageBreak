@@ -1,4 +1,4 @@
-# **LanguageBreak**
+# **LanguageBreak** 
 Jailbreak for any kindle running FW 5.16.2.1.1 or **LOWER**
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E1QLG4D)
