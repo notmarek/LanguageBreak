@@ -1,6 +1,6 @@
 name: LanguageBreak master build
 run-name: Building LanguageBreak from master 🚀
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   Build-Latest-Artifacts:
     runs-on: ubuntu-latest
