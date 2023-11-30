@@ -9,7 +9,7 @@ No actualice a una versión superior a la 5.16.2.1.1 incluso después del jailbr
 
 Muchas gracias a Bluebotlabs por toda la ayuda a través de este camino y a GeorgeYellow y sus trucos por iluminar la vulnerabilidad hacia la luz.
 
-El último tarball lo puede encontrar siempre [aquí]("https://github.com/notmarek/LanguageBreak/releases/latest").
+El último tarball lo puede encontrar siempre [aquí](https://github.com/notmarek/LanguageBreak/releases/latest).
 
 Asegúrese de eliminar cualquier tipo de bloqueo por contraseña, si ha olvidado y esta atascado en la pantalla de contraseña, ingrese `111222777` y la Kindle se reestablecerá de fábrica.
 
@@ -116,7 +116,7 @@ Oasis 9th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_
 Oasis 8th Gen: https://s3.amazonaws.com/firmwaredownloads/update_kindle_oasis_5.XX.X.bin
 ```
 
-Considerando lo anterior, si tiene la versión 5.16.2.1.1 para PW4, debería descargar el archivo de actualización [https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.16.2.1.1.bin](]https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.16.2.1.1.bin)
+Considerando lo anterior, si tiene la versión 5.16.2.1.1 para PW4, debería descargar el archivo de actualización [https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.16.2.1.1.bin](https://s3.amazonaws.com/firmwaredownloads/update_kindle_all_new_paperwhite_v2_5.16.2.1.1.bin)
 
 
-[Considere comprarme un café :)]("https://ko-fi.com/notmarek")
+[Considere comprarme un café :)](https://ko-fi.com/notmarek)
