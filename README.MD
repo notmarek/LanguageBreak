@@ -6,8 +6,6 @@ Jailbreak for any kindle running FW 5.16.2.1.1 or **LOWER**
 
 **The exploit works best around version 5.16.2, so if you are on lower firmware you should consider updating**
 
-Do not update past 5.16.2.1.1 even after jailbreak, there have been big changes since and **everything** is broken, only thing you can do on these versions is downgrade (if your jailbreak survived).
-
 Big thanks to Bluebotlabs for all the help along the way and GeorgeYellow and bulltricks for bringing the vulnerability to light
 
 The most up to date release can be found [here](https://github.com/notmarek/LanguageBreak/releases/latest).
@@ -15,16 +13,16 @@ The most up to date release can be found [here](https://github.com/notmarek/Lang
 # Installation
 
 ## Warnings
-⚠️ This method **will** __DELETE__ all content on your device. Backup important files.
-⚠️ This method works up to firmware version `5.16.2.1.1`. Downgrade if needed.
-⚠️ Do not update your firmware beyond `5.16.2.1.1` after jailbreaking with LanguageBreak, as future versions of the firmware patch it.
-⚠️ Your device must have no password lock. Remove it before starting.
+- ⚠️ This method **will** __DELETE__ all content on your device. Backup important files.
+- ⚠️ This method works up to firmware version `5.16.2.1.1`. Downgrade if needed.
+- ⚠️ Do not update your firmware beyond `5.16.2.1.1` after jailbreaking with LanguageBreak, as future versions of the firmware patch it.
+- ⚠️ Your device must have no password lock. Remove it before starting.
 
-## Prerequisites
+## Before you start, make sure:
 - Airplane Mode is **ON**
 - The device (esp. the root folder) should have no `.bin` or `update.bin.tmp.partial` files before you start. This may be a pending OTA update. Delete them.
 
-## Jailbreak
+## Jailbreaking your Kindle
 
 1. Type `;enter_demo` into the Kindle search bar, press enter, then reboot the device.
 2. Once the device boots, dismiss the wifi selection dialog, type whatever you'd like into the text fields, then continue.
@@ -112,4 +110,4 @@ So version 5.16.2.1.1 for PW4 would be [https://s3.amazonaws.com/firmwaredownloa
 **To install the file, place it into the root directory of the Kindle, then select `Update your Kindle` in settings. It should also apply the update on reboot if the menu is inaccessible for some reason.**
 
 
-[Consider buying me a coffee :)]("https://ko-fi.com/notmarek")
+[Consider buying me a coffee :)](https://ko-fi.com/notmarek)
