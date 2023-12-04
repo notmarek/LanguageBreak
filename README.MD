@@ -14,7 +14,7 @@ The most up to date release can be found [here](https://github.com/notmarek/Lang
 
 ## Warnings
 - ⚠️ This method **will** __DELETE__ all content on your device. Backup important files.
-- ⚠️ This method works up to firmware version `5.16.2.1.1`. Downgrade if needed.
+- ⚠️ This method works up to firmware version `5.16.2.1.1`. It is strongly suggested you upgrade to this firmware before starting.
 - ⚠️ Do not update your firmware beyond `5.16.2.1.1` after jailbreaking with LanguageBreak, as future versions of the firmware patch it.
 - ⚠️ Your device must have no password lock. Remove it before starting.
 
