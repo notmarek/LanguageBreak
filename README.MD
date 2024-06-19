@@ -64,7 +64,7 @@ This will reboot the device out of Demo mode. Your device may go into Managed mo
 
 
 # FAQ
-```
+
 Q: It didn't work!!!!!! 
 A: Not a question.. but checkout issue #48
 
@@ -74,6 +74,7 @@ A: (after applying hotfix): Type `;log` into the Kindle search bar, some text sh
 
 Q: Where are the hotfix files?
 A: The structure of the tarball is as follows
+```
 LanguageBreak.tar.gz
 |-- LanguageBreak
 |	|-- documents
