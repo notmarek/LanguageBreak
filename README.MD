@@ -66,13 +66,17 @@ This will reboot the device out of Demo mode. Your device may go into Managed mo
 # FAQ
 
 Q: It didn't work!!!!!! 
-A: Not a question.. but checkout issue #48
+
+A: Not a question.. but checkout issue [#48](https://github.com/notmarek/LanguageBreak/issues/48)
 
 Q: How do I verify my installation?
+
 A: (before applying hotfix): Install hotfix, if you can do that then it worked.
+
 A: (after applying hotfix): Type `;log` into the Kindle search bar, some text should appear at the top right side of the screen.
 
 Q: Where are the hotfix files?
+
 A: The structure of the tarball is as follows
 ```
 LanguageBreak.tar.gz
