@@ -15,6 +15,7 @@ Thank you to Bluebotlabs for Mesquito and all the help along the way and GeorgeY
 
 **Jailbreak**
 
+0. Make sure your kindle is tied to an amazon account
 1. Turn on airplane mode
 2. Copy contents of LanguageBreak to the kindle
 3. Restart kindle
