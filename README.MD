@@ -30,21 +30,22 @@ The most up to date release can be found [here](https://github.com/notmarek/Lang
 4. The device will take a few minutes to go into demo mode. When it's done, use [this gesture](https://www.youtube.com/watch?v=JzuIGbGPpig) to access the main screen.
 5. Type `;demo` into the Kindle search bar, then press enter to access the Demo Mode Configuration screen.
 6. Select the `Sideload Content` option.
-7. Connect your Kindle to a PC, then copy the contents of the `LanguageBreak` folder to the Kindle's root directory (if prompted, overrwrite the existing files).
+7. Connect your Kindle to a PC, then copy the contents of the `LanguageBreak` folder from the [latest release's *.tar.gz file](https://github.com/notmarek/LanguageBreak/releases) to the Kindle's root directory (if prompted, overrwrite the existing files).
 8. Eject, then *unplug your Kindle*, then return to the Demo Configuration Screen (using the method in step 5, if required).
 9. Select `Resell Device`, then confirm.
 10. As soon as the "Press the Power Button" screen appears, plug your Kindle back into your computer. (This is time sensitive, be quick.)
 11. Copy the contents of the `LanguageBreak` folder to the Kindle's root directory, again. (if prompted, overrwrite the existing files).
 12. After all files have been written, eject your Kindle, then press and hold the power button until the unit reboots.
-13. At this point, a language selection screen appears. Select `简体中文` (Chinese), which should appear above an entry called `Pseudot` and below Japanese.
+13. At this point, a language selection screen appears. Select `简体中文` (Chinese), which should appear above an entry called `Pseudot` and below Japanese and click the Chinese text button that appears in the middle of the screen.
 14. Your Kindle should reboot, and some log messages should appear in the top right-hand corner.
     
 ## Applying the Hotfix
 
 1. After the device has rebooted, type `;uzb` into the Kindle search bar to enable USB access within demo mode, then press enter.
-2. Connect the device to a PC and copy whichever `Update_hotfix_languagebreak-{languge/locale}.bin` file matches your language to the Kindle's root directory.
+2. Connect the device to a PC and copy whichever `Update_hotfix_languagebreak-{languge/locale}.bin` file from the release matches your language to the Kindle's root directory.
 3. Eject your Kindle, then `;dsts` into the Kindle search bar to access the settings page. Locate the `Update your Kindle` option and press it, then confirm.
  - Using your phone to translate the menus is helpful if you don't happen to be able to read Chinese.
+ - If you see an infoscreen that states "Update Error" or similar then try to apply the hotfix again (last three steps)
 
 This will reboot the device out of Demo mode. Your device may go into Managed mode after completing these steps. Managed devices have some settings greyed out, and ask the user to contact their system administrator. See below for steps on how to restore functionality (and the correct language) to your device.
     
